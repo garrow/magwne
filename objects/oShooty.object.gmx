@@ -34,12 +34,14 @@ if keyboard_check(ord("D")) { x += defaultSpeed }
 
 image_angle = point_direction(x, y, mouse_x, mouse_y)
 
-if mouse_check_button(mb_left) {
+if mouse_check_button(mb_left) and instance_number(oBullet) &lt; 10 {
     Bullet = instance_create(x, y, oBullet)
     Bullet.image_angle = image_angle
     Bullet.direction = image_angle
     Bullet.speed = 15
-}
+    speed = max(-1, speed - 0.1)
+    direction = image_angle
+} 
 
 dangerousMonster = instance_place(x,y, oMonstar)
 
