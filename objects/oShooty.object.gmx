@@ -26,21 +26,27 @@
           <argument>
             <kind>1</kind>
             <string>defaultSpeed = 5
+maxSpeed = 5
+defaultAcceleration = 1
+recoilAcceleration = 1
 
-if keyboard_check(ord("W")) { y -= defaultSpeed }
-if keyboard_check(ord("S")) { y += defaultSpeed }
-if keyboard_check(ord("A")) { x -= defaultSpeed }
-if keyboard_check(ord("D")) { x += defaultSpeed }
+//speed = min(speed + defaultAcceleration, defaultSpeed)
+
+if keyboard_check(ord("W")) { speed = min(speed + defaultAcceleration, defaultSpeed) }
+if keyboard_check(ord("S")) { speed = max(speed - defaultAcceleration, - maxSpeed) }
+//if keyboard_check(ord("A")) { x -= defaultSpeed }
+//if keyboard_check(ord("D")) { x += defaultSpeed }
 
 image_angle = point_direction(x, y, mouse_x, mouse_y)
+direction = image_angle
 
 if mouse_check_button(mb_left) and instance_number(oBullet) &lt; 10 {
     Bullet = instance_create(x, y, oBullet)
     Bullet.image_angle = image_angle
     Bullet.direction = image_angle
     Bullet.speed = 15
-    speed = max(-1, speed - 0.1)
-    direction = image_angle
+    //speed = max(-1, speed - 0.1)
+    //direction = image_angle
 } 
 
 dangerousMonster = instance_place(x,y, oMonstar)
@@ -49,6 +55,29 @@ if (instance_exists(dangerousMonster)) {
     game_restart()
 }
 
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(x,y,"Ship")
 </string>
           </argument>
         </arguments>
