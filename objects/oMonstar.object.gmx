@@ -28,6 +28,8 @@
             <string>speed = 3
 direction = random(360)
 
+image_speed = 0.2
+
 
 
 </string>
