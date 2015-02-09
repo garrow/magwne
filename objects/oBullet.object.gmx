@@ -25,7 +25,11 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if y &lt; 0 or y &gt; room_height 
+    or x &lt; 0 or x &gt; room_width { 
+instance_destroy()
+}
+</string>
           </argument>
         </arguments>
       </action>
